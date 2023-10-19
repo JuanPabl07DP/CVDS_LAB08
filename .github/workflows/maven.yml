@@ -68,7 +68,7 @@ jobs:
         cache: maven
     
     - name: Build message 
-      run:  echo "En construccion" 
+      run:  echo "En construcción ..." 
  
     - name: Test Report
       uses: actions/upload-artifact@v3
