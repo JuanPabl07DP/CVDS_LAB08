@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+    <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <title>Modificate Employee</title>
+</head>
+<body>
+<h1 class="container animate__animated animate__pulse"> Modificating ...</h1>
+<br>
+<div class="container">
+
+    <form action="/update-employee" method="POST">
+        <div class="form-group">
+            <input type="hidden" class="form-control" id="modificate" name="id" th:value="${employee.getEmployeeId()}">
+            <label for="firtsName">Input Firts Name:</label>
+            <input type="text" class="form-control" id="firtsName" name="firtsName" placeholder="Write the Firts Name" th:value="${employee.getFirtsName()}">
+            <label for="lastName">Input Last Name:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Write the Last Name" th:value="${employee.getLastName()}">
+            <label for="role">Input Role:</label>
+            <input type="text" class="form-control" id="role" name="role" placeholder="Write the Role" th:value="${employee.getRole()}">
+            <label for="salary">Input Role:</label>
+            <input type="number" class="form-control" id="salary" name="salary" placeholder="Write the Salary" th:value="${employee.getSalary()}">
+            <br>
+            <button type="submit" class="btn btn-primary"> Send </button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>
