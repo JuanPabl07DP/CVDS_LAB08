@@ -1,9 +1,11 @@
 package co.edu.escuelaing.cvds.lab7.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.util.Objects;
 
+@Builder
 @Entity
 @Table(name = "EMPLOYEE")
 public class Employee {
