@@ -62,7 +62,7 @@ public class EmployeeController {
     }
     @PostMapping("/delete-employee")
     public String deleteEmployee(Long id){
-        String template = employeeService.deleteEmployee(id) ? "deleteSuccessful":"deleteFail";
+        String template = employeeService.deleteEmployee_1(id) ? "deleteSuccessful":"deleteFail";
         return template;
 
     }

@@ -20,28 +20,37 @@ public class EmployeeService {
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
-    public void createEmployee(){
+
+    public void createEmployee() {
         Employee employee = new Employee();
         employeeRepository.save(employee);
     }
 
-    public List<Employee> getEmployees(){
+    public List<Employee> getEmployees() {
         return employeeRepository.findAll();
     }
 
-    public Optional<Employee> getEmployeeById(long id){
+    public Optional<Employee> getEmployeeById(long id) {
         return employeeRepository.findById(id);
     }
-    public  Employee saveEmployee(Employee e){
+
+    public Employee saveEmployee(Employee e) {
         return employeeRepository.save(e);
     }
-    public boolean deleteEmployee(long id){
-        try{
-            Optional<Employee> employee= this.getEmployeeById(id);
+
+    public boolean deleteEmployee_1(long id) {
+        try {
+            Optional<Employee> employee = this.getEmployeeById(id);
             employeeRepository.delete(employee.get());
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
+
+    public void deleteEmployee(long id) {
+        Optional<Employee> employee = this.getEmployeeById(id);
+        employeeRepository.deleteById(id);
+    }
+
 }

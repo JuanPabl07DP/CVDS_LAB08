@@ -53,6 +53,44 @@ public class EmployeeServiceTest {
         Optional<Employee> actualEmployee = employeeService.getEmployeeById(1L);
         assertFalse(actualEmployee.isPresent());
     }
+    @Test
+    void testDeleteEmployeeById(){
+        long employeeId = 1L;
+        when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
+        employeeService.deleteEmployee(employeeId);
+        verify(employeeRepository, times(1)).deleteById(employeeId);
+        assertTrue(true);
+    }
+
+    @Test
+
+    public void givenEmployeeObject_whenDeleteEmployeeAndQueryEmployee_thenReturnNull(){
+        // given - precondition or setup
+        willDoNothing().given(employeeRepository).deleteById(employee.getEmployeeId());
+
+        // when -  action or the behaviour that we are going test
+
+        employeeService.deleteEmployee(employee.getEmployeeId());
+
+        when(employeeService.getEmployeeById(employee.getEmployeeId())).thenReturn(null);
+
+        // then - verify the output
+
+        Optional<Employee> queryEmployee = employeeService.getEmployeeById(employee.getEmployeeId());
+
+        assertThat(queryEmployee).isNull();
+
+    }
+    @Test
+    public void givenEmployeeObject_whenSaveEmployee_thenReturnEmployeeObject(){
+        // given - precondition or setup
+        given(employeeRepository.save(employee)).willReturn(employee);
+        // when -  action or the behaviour that we are going test
+        when(employeeService.saveEmployee(employee)).thenReturn(employee);
+        // then - verify the output
+        Employee savedEmployee = employeeService.saveEmployee(employee);
+        assertThat(savedEmployee).isNotNull();
+    }
 }
 
 
